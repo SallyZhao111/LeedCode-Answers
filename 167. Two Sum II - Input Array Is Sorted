@@ -1,0 +1,21 @@
+# two pointer
+
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        left=0
+        right=len(numbers)-1
+        sum=0
+        list=[]
+        while left<right:
+        
+            sum=numbers[left]+numbers[right]
+            if sum-target==0:
+                list.append(left+1)
+                list.append(right+1)
+                break
+            elif sum<target:
+                left += 1
+            else: 
+                right -= 1
+
+        return list
