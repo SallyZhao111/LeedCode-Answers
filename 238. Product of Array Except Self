@@ -1,0 +1,40 @@
+#this answer doesnt pass
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        answer=[]
+        for m in range(len(nums)):
+            right=1
+            left=1
+            
+            for i in range(m+1,len(nums)):
+                right*=nums[i]
+            for j in range(0,m):
+                left *=nums[j]
+            answer.append(left*right)
+
+
+
+        return answer
+
+# this is a suggested answer
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n = len(nums)
+        answer = [1] * n
+
+        
+        left = 1
+        for i in range(n):
+            answer[i] = left
+            left *= nums[i]
+
+        
+        right = 1
+        for i in range(n - 1, -1, -1):
+            answer[i] *= right
+            right *= nums[i]
+
+        return answer
+
+        
